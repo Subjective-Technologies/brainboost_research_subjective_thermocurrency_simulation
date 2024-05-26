@@ -1,0 +1,1 @@
+# brainboost_research_subjective_thermocurrency_simulation
