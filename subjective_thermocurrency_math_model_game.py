@@ -26,7 +26,7 @@ open_angle = 90  # 90 degrees for clockwise rotation
 
 # Number of doors and their spacing
 num_doors_horizontal = WIDTH // door_length  # Number of doors to fill the width
-num_doors_vertical = HEIGHT // int(1.25 * door_length)  # 1.25 times the door length for vertical spacing
+num_doors_vertical = HEIGHT // int(1.25 * door_length)  # 1.25 +times the door length for vertical spacing
 spacing_horizontal = door_length  # No gaps horizontally
 spacing_vertical = int(1.25 * door_length)  # 1.25 times the door length for vertical spacing
 person_height_gap = door_length // 4  # Half the door length to place the person on top of the first line of doors
