@@ -49,7 +49,7 @@ class Door:
         self.random_number = random_number
         self.color = color
         self.highlighted_digits = [False, False, False]
-        self.highlighted_color = None
+        self.highlighted_color = [None, None, None]
 
     def toggle(self):
         self.is_open = not self.is_open
@@ -65,11 +65,11 @@ class Door:
         right_vertex = self.calculate_right_vertex()
         pygame.draw.line(surface, self.color, self.left_vertex, right_vertex, 1)
         
-        random_number_str = str(self.random_number)
+        random_number_str = str(self.random_number).zfill(6)
         combined_surface = pygame.Surface((door_length, font.get_height()), pygame.SRCALPHA)
         x_offset = 0
         for i in range(3):
-            color = self.highlighted_color if self.highlighted_digits[i] else self.color
+            color = self.highlighted_color[i] if self.highlighted_digits[i] else self.color
             text_surface = font.render(random_number_str[i*2:(i+1)*2], True, color)
             combined_surface.blit(text_surface, (x_offset, 0))
             x_offset += text_surface.get_width()
@@ -81,7 +81,7 @@ class Door:
         for i in range(3):
             if not self.highlighted_digits[i]:
                 self.highlighted_digits[i] = True
-                self.highlighted_color = color
+                self.highlighted_color[i] = color
                 break
 
 class Person:
@@ -151,10 +151,10 @@ class Person:
     def check_highlight_door(self, doors):
         for door in doors:
             if door.left_vertex[0] <= self.x <= door.left_vertex[0] + door_length:
-                door_random_number_str = str(door.random_number)
+                door_random_number_str = str(door.random_number).zfill(6)
                 for i in range(3):
                     if door_random_number_str[i*2:(i+1)*2] == str(self.random_number).zfill(2):
-                        if i == 0 or (i > 0 and door.highlighted_digits[i-1] and door.highlighted_color == self.color):
+                        if i == 0 or (i > 0 and door.highlighted_digits[i-1] and door.highlighted_color[i-1] == self.color):
                             door.highlight_next_digit(self.color)
                             break
 
