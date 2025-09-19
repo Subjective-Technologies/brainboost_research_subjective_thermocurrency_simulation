@@ -1,4 +1,11 @@
 # brainboost_research_subjective_thermocurrency_simulation
+
+Dowload STC PDF book from 
+
+https://subjectivetechnologies.com/subjective_thermo_currency
+
+
+
 XII. SUBJECTIVE THERMO-CURRENCY
 (STC): In conventional economic systems,
 money functions as an intermediary for the
